@@ -27,7 +27,6 @@ jobs:
   test-selenium:
     name: Test Selenium
     runs-on: ubuntu-latest
-    needs: build-maven
 
     steps:
     - name: Checkout repo
@@ -57,7 +56,6 @@ jobs:
   test-jmeter:
     name: Test JMeter
     runs-on: ubuntu-latest
-    needs: build-maven
 
     steps:
     - name: Checkout repo
