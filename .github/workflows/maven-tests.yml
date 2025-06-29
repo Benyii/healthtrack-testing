@@ -38,16 +38,11 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
-    - name: Install Chromium 108
+    - name: Set up ChromeDriver 137
       run: |
-        sudo apt-get update
-        sudo apt-get install -y chromium-browser
-
-    - name: Install ChromeDriver 108
-      run: |
-        wget https://chromedriver.storage.googleapis.com/108.0.5359.71/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        sudo mv chromedriver /usr/local/bin/
+        wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/137.0.7151.119/linux64/chromedriver-linux64.zip
+        unzip chromedriver-linux64.zip
+        sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
 
     - name: Run Selenium Tests
