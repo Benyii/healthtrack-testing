@@ -19,6 +19,7 @@ scannerwork/
 *.jar
 *.war
 *.ear
+*.png
 ehthumbs.db
 Desktop.ini
 *.bak
@@ -26,3 +27,5 @@ Desktop.ini
 *.old
 jmeter/bin/report-output/
 *.Identifier
+sonar-project.properties
+.scannerwork/
