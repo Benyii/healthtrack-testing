@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.healthtrack.UsuarioTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.052 s <<< FAILURE! -- in com.healthtrack.UsuarioTest
+com.healthtrack.UsuarioTest.testActualizarPeso -- Time elapsed: 0.009 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Se esperaba 85, pero el peso resultante es: 79.0 ==> expected: <85.0> but was: <79.0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:86)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1020)
+	at com.healthtrack.UsuarioTest.testActualizarPeso(UsuarioTest.java:12)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
