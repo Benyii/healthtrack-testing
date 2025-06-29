@@ -1,4 +1,4 @@
-name: Java CI - Maven
+name: Java CI - Tests
 
 on:
   push:
@@ -20,5 +20,34 @@ jobs:
         distribution: 'temurin'
         java-version: '11'
 
-    - name: Build with Maven
-      run: mvn -B clean verify
+    - name: Set up Chromium 108
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser
+
+    - name: Set up ChromeDriver 108
+      run: |
+        wget https://chromedriver.storage.googleapis.com/108.0.5359.71/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/
+        sudo chmod +x /usr/local/bin/chromedriver
+
+    - name: Build and Test with Maven
+      run: mvn clean verify
+
+    - name: Install JMeter
+      run: |
+        wget https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz
+        tar -xzf apache-jmeter-5.6.3.tgz
+        echo "$PWD/apache-jmeter-5.6.3/bin" >> $GITHUB_PATH
+
+    - name: Run JMeter test plan
+      run: |
+        mkdir -p jmeter/resultados/html
+        jmeter -n -t jmeter/healthtrack_test_plan.jmx -l jmeter/resultados/result.jtl -e -o jmeter/resultados/html
+
+    - name: Upload JMeter HTML report
+      uses: actions/upload-artifact@v4
+      with:
+        name: jmeter-report
+        path: jmeter/resultados/html
