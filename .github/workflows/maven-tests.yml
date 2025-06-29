@@ -48,6 +48,13 @@ jobs:
     - name: Run Selenium Tests
       run: mvn test -Dtest=ActualizacionPesoUITest
 
+    - name: Upload Selenium Screenshot
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: selenium-screenshot
+          path: selenium/screenshot_google.png
+
   test-jmeter:
     name: Test JMeter
     runs-on: ubuntu-latest
